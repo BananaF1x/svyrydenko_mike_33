@@ -77,6 +77,15 @@ buyButton.addEventListener('click', () => {
     orderForm.style.display = "block";
 })
 
+function setId(num) {
+    const arrId = getOrders().map(e => e.id);
+    let = id = num;
+    arrId .forEach(e => {
+        if(e == num) id = Math.max.apply(null, arrId) + 1;
+    })
+    return id;
+}
+
 function fillingForm() {
     const fullName = document.getElementById('full-name').value;
     const city = document.getElementById('city').value;
@@ -107,7 +116,7 @@ function fillingForm() {
         quantity: quantity,
         comment: comments,
         fullName: fullName,
-        id: orders.length + 1
+        id: setId(orders.length + 1)
     }
 
     return order;
